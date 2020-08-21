@@ -3,3 +3,4 @@ class PostsController < ApplicationController
    post = Post.create(content: params[:content], checked: false)
    render json:{ post: post }
  end
+end
