@@ -70,41 +70,24 @@ Things you may want to cover:
 | ------------- | ------- | ------------ |
 | product       | integer | null: false, |
 | user          | integer | null: false, |
-| purchase_info | integer | null: false, |
+| address       | integer | null: false, |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to :purchase_info
+- belongs_to :address
 
-
-## comments テーブル
-| Column  | Type       | Options      |
-| ------- | ---------- | ------------ |
-| content | string     | null: false  |
-| user    | integer    | null: false, |
-| product | integer    | null: false, |
-
-### Association
-
-- belongs_to :product
-- belongs_to :user
-
-## purchase_info テーブル
+## addres テーブル
 
 | Column        | Type       | Options      |
 | ------------- | ---------- | ------------ |
-| card_data     | string     | null: false  |
-| card_deadline | string     | null: false  |
-| security_code | string     | null: false  |
 | postal_code   | string     | null: false  |
 | prefectures   | integer    | null: false, |
 | city          | string     | null: false  |
 | address       | string     | null: false  |
 | building_name | string     |              |
 | phone_number  | string     | null: false  |
-| item_purchase | integer    | null: false, |
 
 ### Association
 
