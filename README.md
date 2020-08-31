@@ -36,7 +36,7 @@ Things you may want to cover:
 | last_name  | string | null: false |
 | read_first | string | null: false |
 | read_last  | string | null: false |
-| birth      | string | null: false |
+| birth      | date   | null: false |
 
 ### Association
 
@@ -46,18 +46,18 @@ Things you may want to cover:
 
 ## products テーブル
 
-| Column           | Type   | Options     |
-| ---------------  | ------ | ----------- |
-| photo            | string | null: false |
-| name             | string | null: false |
-| explanation      | string | null: false |
-| category         | string | null: false |
-| condition        | string | null: false |
-| postage_type     | string | null: false |
-| prefectures      | string | null: false |
-| preparation_days | string | null: false |
-| value            | string | null: false |
-| user             | string | null: false |
+| Column           | Type       | Options                      |
+| ---------------  | ---------  | ---------------------------- |
+| photo            | string     | null: false                  |
+| name             | string     | null: false                  |
+| explanation      | text       | null: false                  |
+| category         | integer    | null: false                 |
+| condition        | integer    | null: false                  |
+| postage_type     | string     | null: false                  |
+| prefectures      | integer    | null: false,foreign_key:true|
+| preparation_days | references | null: false,foreign_key:true |
+| value            | integer    | null: false                  |
+| user             | references | null: false,foreign_key:true |
 
 ### Association
 
@@ -66,17 +66,17 @@ Things you may want to cover:
 - has_many :comments
 
 ## item_purchases テーブル
-| Column        | Type    | Options      |
-| ------------- | ------- | ------------ |
-| product       | integer | null: false, |
-| user          | integer | null: false, |
-| address       | integer | null: false, |
+| Column        | Type       | Options                      |
+| ------------- | ---------- | ---------------------------- |
+| product       | references | null: false,foreign_key:true |
+| user          | references | null: false,foreign_key:true |
+
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to :address
+- has_one :address
 
 ## addres テーブル
 
@@ -86,10 +86,10 @@ Things you may want to cover:
 | prefectures   | integer    | null: false, |
 | city          | string     | null: false  |
 | address       | string     | null: false  |
-| building_name | string     |              |
-| phone_number  | string     | null: false  |
-
+| building_name | string     | null: false  |
+| phone_number  | string     | null: false                   |
+| item_purchases| references | null: false,foreign_key:true |
 ### Association
 
-- has_one_active_hash :prefectures
-- has_one :item_purchase
+- belong_to :prefectures
+- belong_to :item_purchase
