@@ -46,18 +46,18 @@ Things you may want to cover:
 
 ## products テーブル
 
-| Column           | Type       | Options                      |
-| ---------------  | ---------  | ---------------------------- |
-| photo            | string     | null: false                  |
-| name             | string     | null: false                  |
-| explanation      | text       | null: false                  |
-| category         | integer    | null: false                 |
-| condition        | integer    | null: false                  |
-| postage_type     | integer    | null: false,foreign_key:true |
-| prefectures      | integer    | null: false,foreign_key:true |
-| preparation_days | integer    | null: false,foreign_key:true |
-| value            | integer    | null: false                  |
-| user             | references | null: false,foreign_key:true |
+| Column           | Type       | Options     |
+| ---------------  | ---------  | ----------- |
+| photo            | string     | null: false |
+| name             | string     | null: false |
+| explanation      | text       | null: false |
+| category         | integer    | null: false |
+| condition        | integer    | null: false |
+| postage_type     | integer    | null: false |
+| prefectures      | integer    | null: false |
+| preparation_days | integer    | null: false |
+| value            | integer    | null: false |
+| user             | references | null: false |
 
 ### Association
 
@@ -66,10 +66,10 @@ Things you may want to cover:
 - has_many :comments
 
 ## item_purchases テーブル
-| Column        | Type       | Options                      |
-| ------------- | ---------- | ---------------------------- |
-| product       | references | null: false,foreign_key:true |
-| user          | references | null: false,foreign_key:true |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| product       | references | null: false |
+| user          | references | null: false |
 
 
 ### Association
@@ -80,15 +80,15 @@ Things you may want to cover:
 
 ## addres テーブル
 
-| Column        | Type       | Options      |
-| ------------- | ---------- | ------------ |
-| postal_code   | string     | null: false  |
-| prefectures   | integer    | null: false, |
-| city          | string     | null: false  |
-| address       | string     | null: false  |
-| building_name | string     | null: false  |
-| phone_number  | string     | null: false                   |
-| item_purchases| references | null: false,foreign_key:true |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| postal_code   | string     | null: false |
+| prefectures   | integer    | null: false |
+| city          | string     | null: false |
+| address       | string     | null: false |
+| building_name | string     | null: false |
+| phone_number  | string     | null: false |
+| item_purchases| references | null: false |
 ### Association
 
 - belong_to :item_purchase
