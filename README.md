@@ -48,7 +48,6 @@ Things you may want to cover:
 
 | Column           | Type       | Options                      |
 | ---------------  | ---------  | ---------------------------- |
-| photo            | string     | null: false                  |
 | name             | string     | null: false                  |
 | explanation      | text       | null: false                  |
 | category         | integer    | null: false                  |
@@ -78,7 +77,7 @@ Things you may want to cover:
 - belongs_to :product
 - has_one :address
 
-## addres テーブル
+## address テーブル
 
 | Column        | Type       | Options                      |
 | ------------- | ---------- | ---------------------------- |
@@ -88,7 +87,7 @@ Things you may want to cover:
 | address       | string     | null: false                  |
 | building_name | string     |                              |
 | phone_number  | string     | null: false                  |
-| item_purchases| references | null: false,foreign_key:true |
+| item_purchase | references | null: false,foreign_key:true |
 ### Association
 
 - belong_to :item_purchase
