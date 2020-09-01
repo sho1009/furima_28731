@@ -53,9 +53,9 @@ Things you may want to cover:
 | explanation      | text       | null: false                  |
 | category         | integer    | null: false                 |
 | condition        | integer    | null: false                  |
-| postage_type     | string     | null: false                  |
-| prefectures      | integer    | null: false,foreign_key:true|
-| preparation_days | references | null: false,foreign_key:true |
+| postage_type     | integer    | null: false,foreign_key:true |
+| prefectures      | integer    | null: false,foreign_key:true |
+| preparation_days | integer    | null: false,foreign_key:true |
 | value            | integer    | null: false                  |
 | user             | references | null: false,foreign_key:true |
 
@@ -91,5 +91,4 @@ Things you may want to cover:
 | item_purchases| references | null: false,foreign_key:true |
 ### Association
 
-- belong_to :prefectures
 - belong_to :item_purchase
