@@ -18,6 +18,21 @@ describe User do
         @user.password_confirmation = "000000"
         expect(@user).to be_valid
       end
+      it "birthが存在すれば登録できる" do
+        expect(@user).to be_valid
+      end
+      it "first_nameが存在すれば登録できる" do
+        expect(@user).to be_valid
+      end
+      it "last_nameが存在すれば登録できる" do
+        expect(@user).to be_valid
+      end
+      it "read_firstが存在すれば登録できる" do
+        expect(@user).to be_valid
+      end
+      it "read_lastが存在すれば登録できる" do
+        expect(@user).to be_valid
+      end
     end
 
     context '新規登録がうまくいかないとき' do
