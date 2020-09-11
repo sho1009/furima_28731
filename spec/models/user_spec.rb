@@ -43,6 +43,11 @@ describe User do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Email has already been taken")
       end
+      it"emailに＠が含まれていないと登録できない" do
+        user = build(:user, email: "@")
+      user.valid?
+      expect(user.errors[:email]).to include("は不正な値です")
+    end
       it "passwordが空では登録できない" do
         @user.password = ""
         @user.valid?
@@ -59,5 +64,41 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
+      it "passwordが半角英字のみなら登録できない" do
+        user = build(:user, password: "aaaaaaa")
+        user.valid?
+        expect(user.errors[:password]).to include("は不正な値です")
+      end
+      it "passwordが半角数字のみなら登録できない" do
+        user = build(:user, password: "1111111")
+        user.valid?
+        expect(user.errors[:password]).to include("は不正な値です")
+      end
+      it "first_nameが空なら登録できない" do
+        user = build(:user, first_name: nil)
+        user.valid?
+        expect(user.errors[:first_name]).to include("を入力してください")
+      end
+      it "last_nameが空なら登録できない" do
+        user = build(:user, last_name: nil)
+        user.valid?
+        expect(user.errors[:last_name]).to include("を入力してください")
+      end
+      it "first_readが空なら登録できない" do
+        user = build(:user, first_name_kana: nil)
+        user.valid?
+        expect(user.errors[:first_name_kana]).to include("を入力してください")
+      end
+      it "last_readが空なら登録できない" do
+        user = build(:user, last_name_kana: nil)
+        user.valid?
+        expect(user.errors[:last_name_kana]).to include("を入力してください")
+      end
+      it "birthが空なら登録できない" do
+        user = build(:user, birthday: nil)
+        user.valid?
+        expect(user.errors[:birthday]).to include("を入力してください")
+      end
+  
     end
   end
