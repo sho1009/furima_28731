@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 6 }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
-  #validates :email, presence: true, uniqueness: true, format: { with: /\A[@]/}
 
   validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/}
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "gitは全角で入力してください。"}
