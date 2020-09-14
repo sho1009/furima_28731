@@ -6,12 +6,24 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
-  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application' %>
 </head>
 
 <body>
+<header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">furima_28731</a></h1>
+        <div class="user_nav grid-6">
+          <a class="post" href="/items/new">投稿する</a>
+        </div>
+      </div>
   <%= yield %>
+  <footer>
+      <p>
+        Copyright Furima_28731 2020.
+      </p>
+    </footer>
 </body>
 
 </html>
