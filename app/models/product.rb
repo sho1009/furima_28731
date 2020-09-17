@@ -3,7 +3,9 @@ class Product < ApplicationRecord
 
 
 
-  belongs_to_active_hash :genre
+  # belongs_to_active_hash :genre
+  belongs_to :user
+
 
   
 end

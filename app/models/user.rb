@@ -14,4 +14,6 @@ class User < ApplicationRecord
   validates :read_last, format: { with: /\A[ァ-ヶー－]+\z/, message: "は全角カタカナで入力して下さい。"}
   # validates :nickname, format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数で入力してください。"}
   validates :birth, presence: true
+  has_many :products
+
 end
