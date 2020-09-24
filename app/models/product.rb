@@ -6,17 +6,16 @@ class Product < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
   validates :explanation, presence: true
-  validates :genre_id, presence: true
-  validates :status_id, presence: true
-  validates :burden_id, presence: true
-  validates :area_id, presence: true
-  validates :days_id, presence: true
-  validates :value, presence: true
-  validates :user, presence: true  
-  # validates :image, presence: true  
+  validates :genre_id, presence: true, length: { minimum:1 }
+  validates :status_id, presence: true, length: { minimum:1 }
+  validates :burden_id, presence: true, length: { minimum:1 }
+  validates :area_id, presence: true, length: { minimum:1 }
+  validates :days_id, presence: true, length: { minimum:1 }
+  validates :user, presence: true
+  validates :image, presence: true  
   has_many :products
   has_one_attached :image
-
+  validates :value, presence: true, uniqueness: true, length: { minimum:300 , maximum:10000000 }
 
 end
 

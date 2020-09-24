@@ -57,7 +57,17 @@ describe '商品出品' do
     it 'imageが空では保存できないこと' do
       @product.image = nil
       @product.valid?
-      expect(@product.errors.full_messages).to include("image can't be blank")
+      expect(@product.errors.full_messages).to include("Image can't be blank")
+    end
+    it 'valueが¥300未満では保存できないこと' do
+      @product.value = 299
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Value is too short (minimum is 300 characters)")
+    end
+    it 'valueが¥10000000以上では保存できないこと' do
+      @product.value = 10000000
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Value is too short (minimum is 300 characters)")
     end
   end
 end
